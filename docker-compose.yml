@@ -1,0 +1,33 @@
+services:
+  tiktok-downloader:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    image: tiktok-downloader:local
+    ports:
+      - "${BIND_HOST:-127.0.0.1}:${PORT:-8000}:8000"
+    environment:
+      TIKTOK_DOWNLOAD_DIR: /app/downloads
+      TIKTOK_PROXY: ${TIKTOK_PROXY:-}
+      TIKTOK_COOKIES_FILE: ${TIKTOK_COOKIES_FILE:-}
+    volumes:
+      - downloads:/app/downloads
+      - ./cookies:/run/cookies:ro
+    init: true
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=256m
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  downloads:

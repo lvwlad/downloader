@@ -1,0 +1,46 @@
+# Python environments and generated files
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+build/
+dist/
+
+# Local credentials and configuration
+.env
+.env.*
+!.env.example
+cookies/
+cookies.txt
+*.pem
+*.key
+
+# Downloads and temporary files
+downloaded_tiktoks/
+tiktok_videos/
+storage/
+downloads/
+*.mp4
+*.part
+*.ytdl
+*.log
+*.tmp
+work/
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Obsolete local scaffolding, not needed to run the application
+/script.ps1
+/src/requests/

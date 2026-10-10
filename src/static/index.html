@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f5">
+  <meta name="description" content="Сохраните видео TikTok на своё устройство с помощью локального загрузчика Toksave.">
+  <title>Toksave — сохрани момент</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="m10 13 4-4m-6 7-2 2a4.3 4.3 0 0 1-6-6l5-5a4.3 4.3 0 0 1 6 0m2 1 2-2a4.3 4.3 0 0 1 6 6l-5 5a4.3 4.3 0 0 1-6 0" transform="translate(1 1) scale(.9)"/></symbol>
+    <symbol id="i-clipboard" viewBox="0 0 24 24"><path d="M9 5H5v16h14V5h-4M9 3h6v5H9z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+  </defs></svg>
+
+  <header class="header wrap">
+    <a href="/" class="brand" aria-label="Toksave, главная"><span class="brand-mark">t<span>↘</span></span>toksave<span class="brand-dot">.</span></a>
+    <nav aria-label="Навигация"><a href="#history">История</a><a href="#how">Как это работает <span>↗</span></a></nav>
+    <span class="local-badge"><span></span>Локальный сервис</span>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="tiny-tiktok">♪</span> ИЗ ЛЕНТЫ — В ТВОЮ КОЛЛЕКЦИЮ</div>
+        <h1 id="hero-title">Хорошие видео.<br>Теперь <span class="highlight">у тебя.<svg viewBox="0 0 320 15" aria-hidden="true"><path d="M4 10Q155-5 314 8"/></svg></span></h1>
+        <p class="hero-description">Тот самый рецепт, смешной момент или новая идея.<br class="desktop-break"> Вставь ссылку на TikTok и сохрани видео в MP4.</p>
+        <div class="hero-points"><span><svg class="icon"><use href="#i-check"/></svg>Оригинальное качество</span><span><svg class="icon"><use href="#i-check"/></svg>Без регистрации</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-orbit"></div><div class="art-plus plus-one">+</div><div class="art-plus plus-two">+</div>
+        <div class="art-tag"><span></span> KEEP THE GOOD STUFF</div>
+        <div class="video-card back-card"><div class="abstract-sun"></div><div class="abstract-hill hill-one"></div><div class="abstract-hill hill-two"></div><span class="card-duration">00:24</span></div>
+        <div class="video-card front-card"><div class="art-glow"></div><div class="art-disc"><span>♪</span></div><div class="art-wave"></div><span class="card-label">маленькие моменты</span><div class="card-bottom"><span>большое вдохновение</span><span>♡</span></div><span class="card-duration">00:15</span></div>
+        <div class="floating-download"><svg class="icon"><use href="#i-download"/></svg></div>
+        <div class="art-caption"><svg class="icon"><use href="#i-check"/></svg> Момент сохранён</div>
+      </div>
+    </section>
+
+    <section class="download-panel" aria-labelledby="download-title">
+      <div class="panel-heading"><div><h2 id="download-title">Сохраним что-нибудь?</h2><p>Одна ссылка. Один клик. Видео у тебя.</p></div><span class="format-pill">VIDEO <span>MP4</span></span></div>
+      <form id="download-form" novalidate>
+        <label for="video-url" class="sr-only">Ссылка на видео TikTok</label>
+        <div class="form-row"><div class="input-wrap"><svg class="icon input-icon" aria-hidden="true"><use href="#i-link"/></svg><input id="video-url" name="url" type="url" inputmode="url" autocomplete="off" spellcheck="false" placeholder="Вставь ссылку на видео TikTok…" aria-describedby="input-hint form-status" required><button class="paste-button" id="paste-button" type="button" aria-label="Вставить ссылку из буфера обмена"><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg><span>Вставить</span></button></div><button class="primary-button" id="download-button" type="submit"><span>Скачать видео</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+        <div class="form-meta"><p id="input-hint">Подойдут обычные и короткие ссылки TikTok</p><span><svg class="icon"><use href="#i-link"/></svg> tiktok.com · vm.tiktok.com · vt.tiktok.com</span></div>
+      </form>
+      <div id="form-status" role="status" aria-live="polite" hidden></div>
+      <div class="loading-state" id="loading-state" hidden><div class="loading-top"><div><span class="spinner"></span><strong id="loading-label">Получаем видео из TikTok…</strong></div><button id="cancel-button" class="text-button" type="button">Отменить</button></div><div class="progress-track" id="progress-track"><div id="progress-fill"></div></div><p id="progress-label">Это может занять немного времени. Оставь вкладку открытой.</p></div>
+      <section class="result" id="result" aria-labelledby="result-title" hidden><video id="preview" controls playsinline preload="metadata" aria-label="Предпросмотр загруженного видео"></video><div class="result-copy"><span class="result-tag"><svg class="icon"><use href="#i-check"/></svg> ВСЁ ГОТОВО</span><h3 id="result-title">Ещё один момент в коллекции.</h3><p id="result-info"></p><a class="primary-button" id="save-file" download="tiktok.mp4"><svg class="icon"><use href="#i-download"/></svg>Сохранить MP4</a><p class="result-note">Нажми, чтобы сохранить файл на устройство.</p></div></section>
+    </section>
+
+    <section class="how-section" id="how" aria-labelledby="how-title"><div class="section-head"><h2 id="how-title">Проще, чем кажется</h2><span>ТРИ МАЛЕНЬКИХ ШАГА</span></div><div class="steps"><article class="step"><span class="step-number">01</span><div><h3>Найди тот самый ролик</h3><p>Открой TikTok и нажми «Поделиться»,<br>затем — «Копировать ссылку».</p></div></article><article class="step"><span class="step-number">02</span><div><h3>Добавь ссылку сюда</h3><p>Вставь её в поле выше<br>и нажми «Скачать видео».</p></div></article><article class="step"><span class="step-number">03</span><div><h3>Забери себе</h3><p>Посмотри предпросмотр<br>и сохрани готовый MP4.</p></div></article></div></section>
+
+    <section class="history-section" id="history" aria-labelledby="history-title"><div class="section-head"><h2 id="history-title">Последние видео <span id="history-count" class="count">0</span></h2><button id="clear-history" class="text-button" type="button" hidden>Очистить историю</button></div><div id="history-list"></div><div class="empty-history" id="empty-history"><div class="empty-icon"><svg class="icon"><use href="#i-clock"/></svg></div><div><h3>Здесь начнётся твоя коллекция</h3><p>Загруженные видео появятся здесь. Начни с первой ссылки.</p></div><span class="empty-arrow">↗</span></div><p class="history-note" id="history-note" hidden>История хранится в этом браузере. После обновления страницы видео можно загрузить снова.</p></section>
+  </main>
+  <footer class="wrap footer"><span class="footer-brand">toksave.</span><p>Сохраняй то, что вдохновляет.</p><span>Для личной коллекции <span class="footer-spark">✳</span></span></footer>
+</body>
+</html>
